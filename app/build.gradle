@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id ("kotlin-parcelize")
+    id ("androidx.navigation.safeargs.kotlin")
+    id ("dagger.hilt.android.plugin")
+    id ("com.google.gms.google-services")
 }
 
 android {
@@ -42,4 +46,40 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+
+
+    apply plugin :"kotlin-kapt"
+
+    //Navigation component
+    def nav_version = "2.5.2"
+    implementation libs.androidx.navigation.fragment.ktx
+    implementation libs.androidx.navigation.ui.ktx
+
+    //loading button
+    implementation libs.loading.button.android
+
+    //Glide
+    implementation libs.glide
+
+    //circular image
+    implementation libs.circleimageview
+
+    //viewpager2 indicator
+    implementation libs.viewpagerindicator
+
+    //stepView
+    implementation libs.stepview
+
+    //Android Ktx
+    implementation libs.androidx.navigation.fragment.ktx.v242
+
+    //Dagger hilt
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+
+    //Firebase
+    implementation libs.firebase.auth
+
+    //Coroutines with firebase
+    implementation libs.kotlinx.coroutines.play.services
 }
